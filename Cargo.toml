@@ -1,0 +1,20 @@
+[package]
+name = "face-onnx"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = []
+embedded-model = []
+
+[dependencies]
+burn = { git = "https://github.com/tracel-ai/burn", features = ["ndarray"] }
+burn-import = { git = "https://github.com/tracel-ai/burn" }
+
+# burn = { path = "../burn/crates/burn", features = ["ndarray"] }
+# burn-import = { path = "../burn/crates/burn-import" }
+
+
+[build-dependencies]
+burn-import = { git = "https://github.com/tracel-ai/burn" }
+# burn-import = { path = "../burn/crates/burn-import" }
