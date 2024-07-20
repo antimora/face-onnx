@@ -7,7 +7,7 @@ fn main() {
     type Backend = NdArray<f32>;
 
     // Get a default device for the backend
-    let device = <Backend as burn::tensor::backend::Backend>::Device::default();
+    let device = Default::default();
 
     // Create a new model and load the state
     let model: Model<Backend> = Model::default();

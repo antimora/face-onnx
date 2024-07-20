@@ -8,11 +8,14 @@ The original onnx file is transformed:
 
 face_detector_opt_transformed_io_names.onnx is copied to `src/model/face-detector.onnx`
 
+## Error 1
 
 The onnx file builds however when loading weights, the following error is raised:
 
 ```
-[face-onnx]% RUST_BACKTRACE=1 cargo run
+[face-onnx]% RUST_BACKTRACE=1 cargo run --bin with_weights
+
+
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.18s
      Running `target/debug/face-onnx`
 thread 'main' panicked at /Users/dilshod/.cargo/registry/src/index.crates.io-6f17d22bba15001f/rand-0.8.5/src/distributions/uniform.rs:998:1:
@@ -86,4 +89,18 @@ stack backtrace:
              at /rustc/129f3b9964af4d4a709d1383930ade12dfe7c081/library/core/src/ops/function.rs:250:5
 note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose backtrace.
 [face-onnx]%
+```
+
+## Error 2
+
+```
+[face-onnx]% cargo run --bin without_weights
+
+   Compiling face-onnx v0.1.0 (/Users/dilshod/Projects/face-onnx)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.96s
+     Running `target/debug/without_weights`
+thread 'main' panicked at /Users/dilshod/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bytemuck-1.16.1/src/internal.rs:32:3:
+cast_slice>PodCastError(TargetAlignmentGreaterAndInputNotAligned)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
 ```
