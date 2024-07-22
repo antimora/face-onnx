@@ -12,7 +12,7 @@ fn main() {
     // Create a new model and load the state
     let model: Model<Backend> = Model::default();
 
-    print!("{}", model);
+    // print!("{}", model);
     let input = Tensor::ones([1, 3, 480, 640], &device);
 
     // Run the model on the input

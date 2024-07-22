@@ -12,7 +12,7 @@ fn main() {
     // Create a new model without weights
     let model: Model<Backend> = Model::new(&device);
 
-    print!("{}", model);
+    // print!("{}", model);
     let input = Tensor::ones([1, 3, 480, 640], &device);
 
     // Run the model on the input
